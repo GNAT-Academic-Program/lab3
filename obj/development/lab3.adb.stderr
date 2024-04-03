@@ -1,0 +1,43 @@
+lab3.adb:1:09: warning: no entities of "Ada.Text_IO" are referenced [-gnatwu]
+lab3.adb:1:20: warning: use clause for package "Text_IO" has no effect [-gnatwu]
+lab3.adb:8:06: warning: no entities of "Bitmap_Color_Conversion" are referenced [-gnatwu]
+lab3.adb:8:31: warning: use clause for package "Bitmap_Color_Conversion" has no effect [-gnatwu]
+lab3.adb:11:05: (style) bad indentation
+lab3.adb:12:05: (style) bad indentation
+lab3.adb:12:05: warning: variable "Row1_state" is not referenced [-gnatwu]
+lab3.adb:13:05: (style) bad indentation
+lab3.adb:14:05: (style) bad indentation
+lab3.adb:15:05: (style) bad indentation
+lab3.adb:16:05: (style) bad indentation
+lab3.adb:18:05: (style) bad indentation
+lab3.adb:18:05: warning: variable "state" is not referenced [-gnatwu]
+lab3.adb:20:05: (style) bad indentation
+lab3.adb:21:05: (style) bad indentation
+lab3.adb:21:15: warning: procedure "Low" is not referenced [-gnatwu]
+lab3.adb:23:05: (style) bad indentation
+lab3.adb:24:05: (style) bad indentation
+lab3.adb:25:09: (style) bad indentation
+lab3.adb:26:09: (style) bad indentation
+lab3.adb:29:05: (style) bad indentation
+lab3.adb:31:05: (style) bad indentation
+lab3.adb:32:05: (style) bad indentation
+lab3.adb:33:09: (style) bad indentation
+lab3.adb:34:09: (style) bad indentation
+lab3.adb:38:05: (style) bad indentation
+lab3.adb:40:05: (style) bad indentation
+lab3.adb:43:04: (style) "begin" in wrong column, should be in column 5
+lab3.adb:52:04: (style) "end" in wrong column, should be in column 5
+lab3.adb:54:01: (style) incorrect layout
+lab3.adb:55:01: (style) incorrect layout
+lab3.adb:56:01: (style) incorrect layout
+lab3.adb:57:01: (style) incorrect layout
+lab3.adb:58:01: (style) incorrect layout
+lab3.adb:59:01: (style) incorrect layout
+lab3.adb:60:01: (style) incorrect layout
+lab3.adb:61:01: (style) incorrect layout
+lab3.adb:62:05: (style) bad indentation
+lab3.adb:63:09: (style) bad indentation
+lab3.adb:64:25: (style) space required
+lab3.adb:65:09: (style) bad indentation
+lab3.adb:73:01: (style) trailing spaces not permitted
+lab3.adb:74:05: (style) bad indentation

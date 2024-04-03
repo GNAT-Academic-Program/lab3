@@ -1,0 +1,105 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with STM32.GPIO; use STM32.GPIO;
+with STM32.Board; use STM32.Board;
+with STM32.Device; use STM32.Device;
+
+procedure Display_Key is
+   type GPIO_Array is array (Integer range <>) of GPIO_Point;
+   type GPIO_Level is (Low, High);
+
+   
+
+   Row_Pins : constant GPIO_Array := (GPIO_Point'(PA0), GPIO_Point'(PA1), GPIO_Point'(PA2), GPIO_Point'(PA3));
+   Col_Pins : constant GPIO_Array := (GPIO_Point'(PA4), GPIO_Point'(PA5), GPIO_Point'(PA6), GPIO_Point'(PA7));
+
+   -- keypad
+   type Key_Matrix is array (1 .. 4, 1 .. 4) of Character;
+   Keypad : constant Key_Matrix :=
+     (('1', '2', '3', 'A'),
+      ('4', '5', '6', 'B'),
+      ('7', '8', '9', 'C'),
+      ('*', '0', '#', 'D'));
+
+   -- gpio pin init
+   procedure Initialize_Pins is
+      Index : Integer := Row_Pins'First; 
+   begin
+      -- Configure Rows as Inputs
+      while Index <= Row_Pins'Last loop
+         Configure_IO
+           (Row_Pins(Index),
+            (Mode => Mode_In, Resistors => Pull_Up));
+         Index := Index + 1; 
+      end loop;
+
+      -- Configure Columns as Outputs
+      Index := Col_Pins'First; 
+      while Index <= Col_Pins'Last loop
+         Configure_IO
+           (Col_Pins(Index),
+            (Mode => Mode_Out, Output_Type => Push_Pull, Speed => Speed_High, Resistors => Floating));
+         Index := Index + 1; 
+      end loop;
+   end Initialize_Pins;
+
+
+   --Periph : aliased STM32.GPIO.GPIO_Port := STM32.Board;
+   --My_GPIO_Port :
+   -- scan key
+   function Scan_Key return Character is
+      Key_Pressed : Character := ASCII.NUL;
+   begin
+      -- set all col high
+      
+      for Col in Col_Pins'Range loop
+         Set
+           (STM32.GPIO.GPIO_Point'
+              (Periph => GPIO_Port, Pin => Col_Pins (Col)));
+      end loop;
+
+      -- scan key
+      for Row in Row_Pins'Range loop
+         -- set row low
+         Clear
+           (STM32.GPIO.GPIO_Point'
+              (Periph => GPIO_Port, Pin => Row_Pins (Row)));
+
+         for Col in Col_Pins'Range loop
+            -- check col
+            if not Set
+                (STM32.GPIO.GPIO_Point'
+                   (Periph => GPIO_Port, Pin => Col_Pins (Col)))
+            then
+               Key_Pressed := Keypad (Row, Col);
+               exit;
+            end if;
+         end loop;
+
+         -- recover to high
+         Set
+           (STM32.GPIO.GPIO_Point'
+              (Periph => GPIO_Port, Pin => Row_Pins (Row)));
+
+         if Key_Pressed /= ASCII.NUL then
+            exit;
+         end if;
+      end loop;
+
+      return Key_Pressed;
+   end Scan_Key;
+
+begin
+   Initialize_Pins;
+
+   loop
+      declare
+         Pressed_Key : Character;
+      begin
+         Pressed_Key := Scan_Key;
+         if Pressed_Key /= ASCII.NUL then
+            Ada.Text_IO.Put_Line("Key Pressed: " & Pressed_Key'Image);
+         end if;
+
+      end;
+   end loop;
+end Display_Key;

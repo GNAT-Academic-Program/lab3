@@ -1,0 +1,15 @@
+name = "lab3"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Your Name"]
+maintainers = ["Your Name <example@example.com>"]
+maintainers-logins = ["github-username"]
+
+executables = ["lab3"]
+
+[[depends-on]]
+stm32_gui = "0.1.0"
+stm32f429disco = "0.1.0"
+[[pins]]
+gnat_arm_elf = { version='12.2.1' }
