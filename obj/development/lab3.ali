@@ -43,12 +43,13 @@ A -march=armv7e-m+fp
 P DB LC TF  SS ZX
 
 RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_DISPATCHING_CALLS
 RV NO_IO
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U lab3%b		lab3.adb		946bbcd4 NE OO SU
+U lab3%b		lab3.adb		9e661fc6 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 Z ada.tags%s		a-tags.adb		a-tags.ali
@@ -77,65 +78,65 @@ D a-tags.ads		20220929111741 9eaa38c6 ada.tags%s
 D a-taside.ads		20220929111741 c0a7c8d8 ada.task_identification%s
 D a-textio.ads		20220929111741 ffc84532 ada.text_io%s
 D a-unccon.ads		20220929111741 0e9b276f ada.unchecked_conversion%s
-D bitmap_color_conversion.ads  20240326050408 7ec7e967 bitmap_color_conversion%s
-D bitmapped_drawing.ads	20240326050412 5d86af19 bitmapped_drawing%s
-D bmp_fonts.ads		20240326050412 593c0a39 bmp_fonts%s
-D framebuffer_ili9341.ads  20240326050412 71d6dd2d framebuffer_ili9341%s
-D framebuffer_ltdc.ads	20240326050412 78cac1e3 framebuffer_ltdc%s
-D hal.ads		20240326050407 2b42c80e hal%s
-D hal-audio.ads		20240326050407 e7f91665 hal.audio%s
-D hal-bitmap.ads	20240326050407 12976478 hal.bitmap%s
-D hal-framebuffer.ads	20240326050407 38f7bff6 hal.framebuffer%s
-D hal-gpio.ads		20240326050407 c8195dfd hal.gpio%s
-D hal-i2c.ads		20240326050407 bbe3f8eb hal.i2c%s
-D hal-real_time_clock.ads  20240326050407 d33ce008 hal.real_time_clock%s
-D hal-spi.ads		20240326050407 23ccf813 hal.spi%s
-D hal-time.ads		20240326050407 c82c1ca8 hal.time%s
-D hal-touch_panel.ads	20240326050407 a00b066b hal.touch_panel%s
-D hal-uart.ads		20240326050407 f6856013 hal.uart%s
-D hershey_fonts.ads	20240326050412 f42bbcd7 hershey_fonts%s
-D ili9341.ads		20240326050410 936ed160 ili9341%s
+D bitmap_color_conversion.ads  20240404015727 7ec7e967 bitmap_color_conversion%s
+D bitmapped_drawing.ads	20240404015731 5d86af19 bitmapped_drawing%s
+D bmp_fonts.ads		20240404015731 593c0a39 bmp_fonts%s
+D framebuffer_ili9341.ads  20240404015732 71d6dd2d framebuffer_ili9341%s
+D framebuffer_ltdc.ads	20240404015732 78cac1e3 framebuffer_ltdc%s
+D hal.ads		20240404015726 2b42c80e hal%s
+D hal-audio.ads		20240404015726 e7f91665 hal.audio%s
+D hal-bitmap.ads	20240404015726 12976478 hal.bitmap%s
+D hal-framebuffer.ads	20240404015726 38f7bff6 hal.framebuffer%s
+D hal-gpio.ads		20240404015726 c8195dfd hal.gpio%s
+D hal-i2c.ads		20240404015726 bbe3f8eb hal.i2c%s
+D hal-real_time_clock.ads  20240404015726 d33ce008 hal.real_time_clock%s
+D hal-spi.ads		20240404015726 23ccf813 hal.spi%s
+D hal-time.ads		20240404015726 c82c1ca8 hal.time%s
+D hal-touch_panel.ads	20240404015726 a00b066b hal.touch_panel%s
+D hal-uart.ads		20240404015726 f6856013 hal.uart%s
+D hershey_fonts.ads	20240404015731 f42bbcd7 hershey_fonts%s
+D ili9341.ads		20240404015729 936ed160 ili9341%s
 D interfac.ads		20220929111741 edec285f interfaces%s
 D i-stm32.ads		20220929111741 2ad0960b interfaces.stm32%s
 D i-stm32-pwr.ads	20220929111741 4a098e84 interfaces.stm32.pwr%s
-D l3gd20.ads		20240326050410 ca110b0d l3gd20%s
-D lab3.adb		20240328190825 38ae9fe3 lab3%b
-D memory_mapped_bitmap.ads  20240326050408 b0310810 memory_mapped_bitmap%s
-D ravenscar_time.ads	20240326050412 7a23edc6 ravenscar_time%s
-D soft_drawing_bitmap.ads  20240326050408 e11f4ff7 soft_drawing_bitmap%s
-D stm32.ads		20240326050411 698e2c3b stm32%s
-D stm32-adc.ads		20240326050411 fbfd6f57 stm32.adc%s
-D stm32-board.ads	20240326050412 2b7277a3 stm32.board%s
-D stm32-crc.ads		20240326050411 9ef7b3c1 stm32.crc%s
-D stm32-dac.ads		20240326050411 bbc963b4 stm32.dac%s
-D stm32-device.ads	20240326050411 21fa9a22 stm32.device%s
-D stm32-dma.ads		20240326050411 a485c5f7 stm32.dma%s
-D stm32-dma-interrupts.ads  20240326050411 0810c00a stm32.dma.interrupts%s
-D stm32-dma2d.ads	20240326050411 cec1550a stm32.dma2d%s
-D stm32-dma2d_bitmap.ads  20240326050412 e71d75df stm32.dma2d_bitmap%s
-D stm32-exti.ads	20240326050411 27a7d05f stm32.exti%s
-D stm32-fmc.ads		20240326050411 cbc3a468 stm32.fmc%s
-D stm32-gpio.ads	20240326050411 316fa3bb stm32.gpio%s
-D stm32-i2c.ads		20240326050411 2a3b9b70 stm32.i2c%s
-D stm32-i2c-dma.ads	20240326050411 75d445d8 stm32.i2c.dma%s
-D stm32-i2s.ads		20240326050411 8099fbc7 stm32.i2s%s
-D stm32-ltdc.ads	20240326050411 679ad904 stm32.ltdc%s
-D stm32-rtc.ads		20240326050411 ff58a3e8 stm32.rtc%s
-D stm32-spi.ads		20240326050411 98127252 stm32.spi%s
-D stm32-spi-dma.ads	20240326050411 030a0921 stm32.spi.dma%s
-D stm32-timers.ads	20240326050411 63c500b2 stm32.timers%s
-D stm32-usarts.ads	20240326050411 c32302c7 stm32.usarts%s
-D stm32_svd.ads		20240326050411 89b9f11a stm32_svd%s
-D stm32_svd-adc.ads	20240326050411 0c4598f6 stm32_svd.adc%s
-D stm32_svd-crc.ads	20240326050411 f8fb8ec8 stm32_svd.crc%s
-D stm32_svd-dac.ads	20240326050411 7ce3d16d stm32_svd.dac%s
-D stm32_svd-dma.ads	20240326050411 cbdaf790 stm32_svd.dma%s
-D stm32_svd-gpio.ads	20240326050411 05f2a6bd stm32_svd.gpio%s
-D stm32_svd-i2c.ads	20240326050411 b6aa1d20 stm32_svd.i2c%s
-D stm32_svd-sdio.ads	20240326050411 586e3cc2 stm32_svd.sdio%s
-D stm32_svd-spi.ads	20240326050411 694b2c33 stm32_svd.spi%s
-D stm32_svd-usart.ads	20240326050411 d9126171 stm32_svd.usart%s
-D stmpe811.ads		20240326050410 1eb180eb stmpe811%s
+D l3gd20.ads		20240404015729 ca110b0d l3gd20%s
+D lab3.adb		20240404073226 32a33cf1 lab3%b
+D memory_mapped_bitmap.ads  20240404015727 b0310810 memory_mapped_bitmap%s
+D ravenscar_time.ads	20240404015732 7a23edc6 ravenscar_time%s
+D soft_drawing_bitmap.ads  20240404015727 e11f4ff7 soft_drawing_bitmap%s
+D stm32.ads		20240404015730 698e2c3b stm32%s
+D stm32-adc.ads		20240404015730 fbfd6f57 stm32.adc%s
+D stm32-board.ads	20240404015732 2b7277a3 stm32.board%s
+D stm32-crc.ads		20240404015730 9ef7b3c1 stm32.crc%s
+D stm32-dac.ads		20240404015730 bbc963b4 stm32.dac%s
+D stm32-device.ads	20240404015730 21fa9a22 stm32.device%s
+D stm32-dma.ads		20240404015730 a485c5f7 stm32.dma%s
+D stm32-dma-interrupts.ads  20240404015730 0810c00a stm32.dma.interrupts%s
+D stm32-dma2d.ads	20240404015730 cec1550a stm32.dma2d%s
+D stm32-dma2d_bitmap.ads  20240404015732 e71d75df stm32.dma2d_bitmap%s
+D stm32-exti.ads	20240404015730 27a7d05f stm32.exti%s
+D stm32-fmc.ads		20240404015730 cbc3a468 stm32.fmc%s
+D stm32-gpio.ads	20240404015730 316fa3bb stm32.gpio%s
+D stm32-i2c.ads		20240404015730 2a3b9b70 stm32.i2c%s
+D stm32-i2c-dma.ads	20240404015730 75d445d8 stm32.i2c.dma%s
+D stm32-i2s.ads		20240404015730 8099fbc7 stm32.i2s%s
+D stm32-ltdc.ads	20240404015730 679ad904 stm32.ltdc%s
+D stm32-rtc.ads		20240404015730 ff58a3e8 stm32.rtc%s
+D stm32-spi.ads		20240404015730 98127252 stm32.spi%s
+D stm32-spi-dma.ads	20240404015730 030a0921 stm32.spi.dma%s
+D stm32-timers.ads	20240404015730 63c500b2 stm32.timers%s
+D stm32-usarts.ads	20240404015730 c32302c7 stm32.usarts%s
+D stm32_svd.ads		20240404015730 89b9f11a stm32_svd%s
+D stm32_svd-adc.ads	20240404015730 0c4598f6 stm32_svd.adc%s
+D stm32_svd-crc.ads	20240404015730 f8fb8ec8 stm32_svd.crc%s
+D stm32_svd-dac.ads	20240404015730 7ce3d16d stm32_svd.dac%s
+D stm32_svd-dma.ads	20240404015730 cbdaf790 stm32_svd.dma%s
+D stm32_svd-gpio.ads	20240404015730 05f2a6bd stm32_svd.gpio%s
+D stm32_svd-i2c.ads	20240404015730 b6aa1d20 stm32_svd.i2c%s
+D stm32_svd-sdio.ads	20240404015730 586e3cc2 stm32_svd.sdio%s
+D stm32_svd-spi.ads	20240404015730 694b2c33 stm32_svd.spi%s
+D stm32_svd-usart.ads	20240404015730 d9126171 stm32_svd.usart%s
+D stmpe811.ads		20240404015729 1eb180eb stmpe811%s
 D system.ads		20220929111741 5ad4ef55 system%s
 D s-bb.ads		20220929111741 09e072ae system.bb%s
 D s-bbbopa.ads		20220929111741 5e9af419 system.bb.board_parameters%s
@@ -173,57 +174,58 @@ D s-taprob.ads		20220929111741 c8fc0753 system.tasking.protected_objects%s
 D s-tpoben.ads		20220929111741 8351b91e system.tasking.protected_objects.entries%s
 D s-traent.ads		20220929111741 c81cbf8c system.traceback_entries%s
 D s-unstyp.ads		20220929111741 fa2a7f59 system.unsigned_types%s
-D touch_panel_stmpe811.ads  20240326050412 aefcd99e touch_panel_stmpe811%s
+D touch_panel_stmpe811.ads  20240404015732 aefcd99e touch_panel_stmpe811%s
 D unchconv.ads		20220929111741 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z b b [lab3 standard 10 11 none]
 G r c none [lab3 standard 10 11 none] [enable_clock stm32__device 72 14 none]
 G r c none [lab3 standard 10 11 none] [configure_io stm32__gpio 207 14 none]
-G r c none [lab3 standard 10 11 none] [clear stm32__gpio 182 14 none]
+G r c none [lab3 standard 10 11 none] [set stm32__gpio 176 14 none]
 G r c none [lab3 standard 10 11 none] [initialize framebuffer_ili9341 46 14 none]
 G r c none [lab3 standard 10 11 none] [initialize_layer framebuffer_ltdc 93 25 none]
+G r c none [lab3 standard 10 11 none] [clear stm32__gpio 182 14 none]
 G r c none [lab3 standard 10 11 none] [set stm32__gpio 169 13 none]
 G r c none [lab3 standard 10 11 none] [hidden_buffer framebuffer_ltdc 146 24 none]
 G r c none [lab3 standard 10 11 none] [draw_string bitmapped_drawing 50 14 none]
 G r c none [lab3 standard 10 11 none] [update_layer framebuffer_ltdc 118 25 none]
 X 1 ada.ads
-16K9*Ada 20e8 37|1r6 1r24
+16K9*Ada 20e8 37|1r6 1r35
 X 13 a-textio.ads
-36K13*Text_IO 52e16 37|1w10 1r28
+36K13*Text_IO 52e16 37|1w10 1r39
 X 15 bitmap_color_conversion.ads
 35K9*Bitmap_Color_Conversion 47e28 37|8w6 8r35
 X 16 bitmapped_drawing.ads
-40K9*Bitmapped_Drawing 78e22 37|7w6 47r7
-50U14*Draw_String 37|47s25
-52r7 Start{22|68R9} 37|48r41
-53a7 Msg{string} 37|48r58
-54e7 Font{17|46E9} 37|49r10
-55r7 Foreground{22|87R9} 37|49r39
-56r7 Background{22|87R9} 37|49r57
+40K9*Bitmapped_Drawing 78e22 37|7w6 64r9
+50U14*Draw_String 37|64s27
+52r7 Start{22|68R9} 37|65r44
+53a7 Msg{string} 37|65r61
+54e7 Font{17|46E9} 37|66r13
+55r7 Foreground{22|87R9} 37|66r42
+56r7 Background{22|87R9} 37|66r60
 X 17 bmp_fonts.ads
-44K9*BMP_Fonts 74e14 37|6w6 49r18
-46n42*Font16x24{46E9} 37|49r28
+44K9*BMP_Fonts 74e14 37|6w6 66r21
+46n42*Font16x24{46E9} 37|66r31
 X 18 framebuffer_ili9341.ads
-46U14*Initialize 37|60s9
+46U14*Initialize 37|83s13
 X 19 framebuffer_ltdc.ads
-93U25*Initialize_Layer<23|84p14> 37|61s9
-118U25*Update_Layer<23|101p14> 37|51s15
-121b7 Copy_Back{boolean} 37|51r32
-146V24*Hidden_Buffer{22|103P9}<23|117p13> 37|44s15 45s15 48s18
+93U25*Initialize_Layer<23|84p14> 37|84s13
+118U25*Update_Layer<23|101p14> 37|68s17
+121b7 Copy_Back{boolean} 37|68r34
+146V24*Hidden_Buffer{22|103P9}<23|117p13> 37|61s17 62s17 65s21
 X 20 hal.ads
-34K9*HAL 166e8 37|5r6 5r23
+34K9*HAL 166e8 37|5r6 5r35
 53M9*UInt8<33|68M9>
 X 21 hal-audio.ads
 62h9*Audio_Stream
 X 22 hal-bitmap.ads
-34K13*Bitmap 433e15 37|5w10 5r27
-45n7*ARGB_8888{44E9} 37|61r30
-87R9*Bitmap_Color 92e15 37|41r21 42r21
-88m7*Alpha{20|53M9} 37|41m38 42m38
+34K13*Bitmap 433e15 37|5w10 5r39
+45n7*ARGB_8888{44E9} 37|84r34
+87R9*Bitmap_Color 92e15 37|58r23 59r23
+88m7*Alpha{20|53M9} 37|58m40 59m40
 101h9*Bitmap_Buffer
 103P9*Any_Bitmap_Buffer(101R9)
-143x14*Set_Source 37|44R33
-203x14*Fill 37|45R33
+143x14*Set_Source 37|61R35
+203x14*Fill 37|62R35
 X 23 hal-framebuffer.ads
 45h9*Frame_Buffer_Display
 X 24 hal-gpio.ads
@@ -243,57 +245,92 @@ X 30 hal-uart.ads
 X 33 interfac.ads
 68M9*Unsigned_8
 X 37 lab3.adb
-10U11*Lab3 10b11 75l5 75t9
-11r5 Col1{53|138R9} 58m25 58r25 59m7 59r7 63r16
-12b5 Row1_state{boolean}
-13r5 Row1{53|138R9} 54m24 54r24
-14r5 Row2{53|138R9} 55m24 55r24
-15r5 Row3{53|138R9} 56m24 56r24
-16r5 Row4{53|138R9} 57m24 57r24
-18b5 state{boolean}
-20U15 High=20:66 59s1
-20r21 This{53|138R9}
-21U15 Low=21:65
-21r20 This{53|138R9}
-23U15 Configure_Analog_Input 23b15 23=38 29l9 29t31 54s1 55s1 56s1 57s1
-23r38 This{53|138R9} 25r23 27r13
-31U15 Configure_Analog_Output 31b15 31=39 38l9 38t32 58s1
-31r39 This{53|138R9} 33r23 35r13
-40U15 Print_To_LCD 40b15 40>29 52l8 52t20 64s13
-40a29 Str{string} 48r65
-41r7 BG{22|87R9} 44r45 49r71
-42r7 FG{22|87R9} 49r53
+10U11*Lab3 10b11 326l5 326t9
+11r5 Col1{53|138R9} 31r49 75m30 75r30 79m10 79r10 268m14 268r14
+12r5 Col2{53|138R9} 31r55 76m30 76r30 80m10 80r10 269m14 269r14
+13r5 Col3{53|138R9} 31r61 77m30 77r30 81m10 81r10 270m14 270r14
+14r5 Col4{53|138R9} 31r67 78m30 78r30 82m10 82r10 271m14 271r14
+16b5 Row1_state{boolean} 92r36 97m33 133r36 138m33 174r36 179m33 215r36 220m33
+. 255m17
+17b5 Row2_state{boolean} 101r36 106m33 142r36 147m33 183r36 188m33 224r36
+. 229m33 256m17
+18b5 Row3_state{boolean} 110r36 115m33 151r36 156m33 192r36 197m33 233r36
+. 238m33 257m17
+19b5 Row4_state{boolean} 119r36 124m33 160r36 165m33 201r36 206m33 242r36
+. 247m33 258m17
+21b5 Col1_state{boolean} 90r28 127m25 263m9
+22b5 Col2_state{boolean} 131r28 168m25 264m9
+23b5 Col3_state{boolean} 172r28 209m25 265m9
+24b5 Col4_state{boolean} 213r28 250m25 266m9
+26r5 Row1{53|138R9} 32r49 71m29 71r29
+27r5 Row2{53|138R9} 32r55 72m29 72r29
+28r5 Row3{53|138R9} 32r61 73m29 73r29
+29r5 Row4{53|138R9} 32r67 74m29 74r29
+31a5 Col_Pins(53|138R9) 86r26 87m19 87r19
+32a5 Row_Pins(53|138R9) 88r30 89r29
+34a5 Input_String{string} 94m33 96r37 103m33 105r37 112m33 114r37 121m33
+. 123r37 135m33 137r37 144m33 146r37 153m33 155r37 162m33 164r37 176m33 178r37
+. 185m33 187r37 194m33 196r37 203m33 205r37 217m33 219r37 226m33 228r37 235m33
+. 237r37 244m33 246r37
+35i5 Input_Length{natural} 93m33 93r49 94r47 96r56 102m33 102r49 103r47 105r56
+. 111m33 111r49 112r47 114r56 120m33 120r49 121r47 123r56 134m33 134r49 135r47
+. 137r56 143m33 143r49 144r47 146r56 152m33 152r49 153r47 155r56 161m33 161r49
+. 162r47 164r56 175m33 175r49 176r47 178r56 184m33 184r49 185r47 187r56 193m33
+. 193r49 194r47 196r56 202m33 202r49 203r47 205r56 216m33 216r49 217r47 219r56
+. 225m33 225r49 226r47 228r56 234m33 234r49 235r47 237r56 243m33 243r49 244r47
+. 246r56
+37b5 state{boolean}
+39U15 High=39:66 87s13
+39r21 This{53|138R9}
+40U15 Low=40:65 79s5 80s5 81s5 82s5 268s9 269s9 270s9 271s9
+40r20 This{53|138R9}
+42U15 Configure_Analog_Input 42b15 42=39 46l9 46t31 71s5 72s5 73s5 74s5
+42r39 This{53|138R9} 44r23 45r23
+48U15 Configure_Analog_Output 48b15 48=40 55l9 55t32 75s5 76s5 77s5 78s5
+48r40 This{53|138R9} 50r23 52r13
+57U15 Print_To_LCD 57b15 57>29 69l9 69t21 95s33 104s33 113s33 122s33 136s33
+. 145s33 154s33 163s33 177s33 186s33 195s33 204s33 218s33 227s33 236s33 245s33
+57a29 Str{string} 65r68
+58r9 BG{22|87R9} 61r47 66r74
+59r9 FG{22|87R9} 66r56
+86i13 Col_Index{integer} 87r29 91r28 100r28 109r28 118r28 132r28 141r28 150r28
+. 159r28 173r28 182r28 191r28 200r28 214r28 223r28 232r28 241r28
+88i17 Row_Index{integer} 89r39 91r46 100r46 109r46 118r46 132r46 141r46 150r46
+. 159r46 173r46 182r46 191r46 200r46 214r46 223r46 232r46 241r46
 X 41 stm32.ads
-39K9*STM32 37|2r6 2r24 3r6 3r24 4r6 4r24 20r55 21r54 41|48e10
+39K9*STM32 37|2r6 2r35 3r6 3r35 4r6 4r35 39r55 40r54 41|48e10
 X 43 stm32-board.ads
-59K15*Board 37|3w12 3r30 43|226e16
-189r4*Display{18|43R9} 37|44m7 44r7 45m7 45r7 48m10 48r10 51m7 51r7 60m1
-. 60r1 61m1 61r1
+59K15*Board 37|3w12 3r41 43|226e16
+189r4*Display{18|43R9} 37|61m9 61r9 62m9 62r9 65m13 65r13 68m9 68r9 83m5
+. 83r5 84m5 84r5
 X 46 stm32-device.ads
-63K15*Device 37|4w12 4r30 46|654e17
-72U14*Enable_Clock 37|25s9 33s9
-142r4*PC3{53|138R9} 37|11r27
-209r4*PG6{53|138R9} 37|13r27
-210r4*PG7{53|138R9} 37|14r27
-211r4*PG8{53|138R9} 37|15r27
-212r4*PG9{53|138R9} 37|16r27
+63K15*Device 37|4w12 4r41 46|654e17
+72U14*Enable_Clock 37|44s9 50s9
+115r4*PA8{53|138R9} 37|27r26
+116r4*PA9{53|138R9} 37|29r26
+147r4*PC8{53|138R9} 37|26r26
+148r4*PC9{53|138R9} 37|11r26
+175r4*PE4{53|138R9} 37|12r26
+176r4*PE5{53|138R9} 37|13r26
+177r4*PE6{53|138R9} 37|14r26
+212r4*PG9{53|138R9} 37|28r26
 X 53 stm32-gpio.ads
-49K15*GPIO 37|2w12 2r30 20r61 21r60 53|297e15
-87n26*Mode_In{87E9} 37|28r22
-87n35*Mode_Out{87E9} 37|36r22
-96n30*Push_Pull{96E9} 37|36r47
-101n70*Speed_100MHz{101E9} 37|36r67
-115n36*Floating{115E9} 37|28r44 37r27
-123e34*Mode{87E9} 37|28m14 36m14
-124e7*Resistors{115E9} 37|28m31 37m14
-129e13*Output_Type{96E9} 37|36m32
-130e13*Speed{101E9} 37|36m58
-138R9*GPIO_Point<24|48R9> 37|11r13 13r13 14r13 15r13 16r13 20r35 21r34 23r52
-. 31r53 53|143e14
-169V13*Set{boolean}<24|77p13> 37|63s12
-176U14*Set<24|89p14> 37|21r65
-182U14*Clear<24|91p14> 37|20r66
-207U14*Configure_IO 37|26s9 34s9
+49K15*GPIO 37|2w12 2r41 39r61 40r60 53|297e15
+87n26*Mode_In{87E9} 37|45r38
+87n35*Mode_Out{87E9} 37|53r22
+96n30*Push_Pull{96E9} 37|53r47
+101n70*Speed_100MHz{101E9} 37|53r67
+115n36*Floating{115E9} 37|45r60 54r27
+123e34*Mode{87E9} 37|45m30 53m14
+124e7*Resistors{115E9} 37|45m47 54m14
+129e13*Output_Type{96E9} 37|53m32
+130e13*Speed{101E9} 37|53m58
+138R9*GPIO_Point<24|48R9> 37|11r12 12r12 13r12 14r12 26r12 27r12 28r12 29r12
+. 31r34 32r34 39r35 40r34 42r53 48r54 53|143e14
+169V13*Set{boolean}<24|77p13> 37|89s24
+176U14*Set<24|89p14> 37|40r65
+182U14*Clear<24|91p14> 37|39r66
+207U14*Configure_IO 37|45s9 51s9
 X 89 s-interr.ads
 97U14*Install_Restricted_Handlers_Sequential 98i<c,__gnat_attach_all_handlers>22
 X 97 s-secsta.ads

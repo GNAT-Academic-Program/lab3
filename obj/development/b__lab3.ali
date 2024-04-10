@@ -37,8 +37,8 @@ W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-D b__lab3.ads		20240403234940 10f9aa5d ada_main%s
-D b__lab3.adb		20240403234940 50adb1e1 ada_main%b
+D b__lab3.ads		20240404073230 10f9aa5d ada_main%s
+D b__lab3.adb		20240404073230 50adb1e1 ada_main%b
 D system.ads		20220929111741 5ad4ef55 system%s
 D s-parame.ads		20220929111741 8e90778f system.parameters%s
 D s-restri.ads		20220929111741 f38f2845 system.restrictions%s
