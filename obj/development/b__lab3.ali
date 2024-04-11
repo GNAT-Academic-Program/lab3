@@ -28,7 +28,7 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV NO_OBSOLESCENT_FEATURES
 
-U ada_main%b		b__lab3.adb		0d8d7603 OO PK IL
+U ada_main%b		b__lab3.adb		306fd2cb OO PK IL
 W system%s		system.ads		system.ali
 W system.restrictions%s	s-restri.adb		s-restri.ali
 
@@ -37,8 +37,8 @@ W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-D b__lab3.ads		20240411192233 10f9aa5d ada_main%s
-D b__lab3.adb		20240411192233 eefbf41b ada_main%b
+D b__lab3.ads		20240411201350 10f9aa5d ada_main%s
+D b__lab3.adb		20240411201350 d31950d3 ada_main%b
 D system.ads		20220929111741 5ad4ef55 system%s
 D s-parame.ads		20220929111741 8e90778f system.parameters%s
 D s-restri.ads		20220929111741 f38f2845 system.restrictions%s
@@ -52,7 +52,7 @@ G c Z s b [main ada_main 25 14 none]
 G c Z b b [Tsec_default_sized_stacksBIP ada_main 76 4 none]
 G c Z b b [ada_main_program ada_main 343 14 none]
 X 1 b__lab3.ads
-6K9*ada_main 337l5 337e13 2|9b14 382l5 382t13
+6K9*ada_main 339l5 339e13 2|9b14 382l5 382t13
 9a4*GNAT_Version{string} 11r22 13r54
 13m4*GNAT_Version_Address{3|80M9} 14r22
 16a4*Ada_Main_Program_Name{string} 17r22 2|354r52

@@ -30,72 +30,67 @@ lab3.adb:34:05: (style) bad indentation
 lab3.adb:36:05: (style) bad indentation
 lab3.adb:37:05: (style) bad indentation
 lab3.adb:37:05: warning: "Row_Pins" is not modified, could be declared constant [-gnatwk]
-lab3.adb:39:05: (style) bad indentation
 lab3.adb:40:05: (style) bad indentation
-lab3.adb:45:05: (style) bad indentation
+lab3.adb:41:05: (style) bad indentation
 lab3.adb:47:05: (style) bad indentation
-lab3.adb:48:80: (style) this line is too long
-lab3.adb:48:90: (style) space required
-lab3.adb:49:80: (style) this line is too long
-lab3.adb:49:90: (style) space required
-lab3.adb:50:80: (style) this line is too long
-lab3.adb:50:90: (style) space required
-lab3.adb:55:01: (style) multiple blank lines
+lab3.adb:49:05: (style) bad indentation
+lab3.adb:50:75: (style) space required
+lab3.adb:51:75: (style) space required
+lab3.adb:52:75: (style) space required
+lab3.adb:57:01: (style) multiple blank lines
 lab3.adb:59:05: (style) bad indentation
-lab3.adb:59:05: warning: variable "Input_String" is not referenced [-gnatwu]
-lab3.adb:60:05: (style) bad indentation
-lab3.adb:60:05: warning: variable "Input_Length" is not referenced [-gnatwu]
+lab3.adb:59:05: warning: variable "state" is not referenced [-gnatwu]
+lab3.adb:60:01: (style) multiple blank lines
 lab3.adb:62:05: (style) bad indentation
-lab3.adb:62:05: warning: variable "state" is not referenced [-gnatwu]
-lab3.adb:63:01: (style) multiple blank lines
+lab3.adb:63:05: (style) bad indentation
 lab3.adb:65:05: (style) bad indentation
 lab3.adb:66:05: (style) bad indentation
-lab3.adb:68:05: (style) bad indentation
+lab3.adb:67:09: (style) bad indentation
+lab3.adb:68:09: (style) bad indentation
 lab3.adb:69:05: (style) bad indentation
-lab3.adb:70:09: (style) bad indentation
-lab3.adb:71:09: (style) bad indentation
+lab3.adb:71:05: (style) bad indentation
 lab3.adb:72:05: (style) bad indentation
-lab3.adb:74:05: (style) bad indentation
-lab3.adb:75:05: (style) bad indentation
-lab3.adb:76:09: (style) bad indentation
-lab3.adb:77:09: (style) bad indentation
-lab3.adb:81:05: (style) bad indentation
+lab3.adb:73:09: (style) bad indentation
+lab3.adb:74:09: (style) bad indentation
+lab3.adb:78:05: (style) bad indentation
+lab3.adb:80:05: (style) bad indentation
+lab3.adb:81:09: (style) bad indentation
+lab3.adb:82:09: (style) bad indentation
 lab3.adb:83:05: (style) bad indentation
 lab3.adb:84:09: (style) bad indentation
 lab3.adb:85:09: (style) bad indentation
-lab3.adb:86:05: (style) bad indentation
 lab3.adb:87:09: (style) bad indentation
-lab3.adb:88:09: (style) bad indentation
-lab3.adb:90:09: (style) bad indentation
-lab3.adb:94:09: (style) bad indentation
+lab3.adb:91:09: (style) bad indentation
+lab3.adb:92:05: (style) bad indentation
+lab3.adb:93:01: (style) multiple blank lines
 lab3.adb:95:05: (style) bad indentation
-lab3.adb:96:01: (style) multiple blank lines
+lab3.adb:96:05: (style) bad indentation
+lab3.adb:97:09: (style) bad indentation
 lab3.adb:98:05: (style) bad indentation
 lab3.adb:99:05: (style) bad indentation
-lab3.adb:100:09: (style) bad indentation
-lab3.adb:101:05: (style) bad indentation
+lab3.adb:100:05: (style) bad indentation
+lab3.adb:101:09: (style) bad indentation
 lab3.adb:102:05: (style) bad indentation
-lab3.adb:103:05: (style) bad indentation
-lab3.adb:104:09: (style) bad indentation
-lab3.adb:105:05: (style) bad indentation
-lab3.adb:107:05: (style) bad indentation
-lab3.adb:109:05: (style) bad indentation
-lab3.adb:110:04: (style) incorrect layout
-lab3.adb:110:05: (style) bad indentation
-lab3.adb:110:05: warning: "KS" is not modified, could be declared constant [-gnatwk]
-lab3.adb:111:05: (style) bad indentation
-lab3.adb:112:09: (style) bad indentation
-lab3.adb:112:41: (style) "and then" required
+lab3.adb:104:05: (style) bad indentation
+lab3.adb:106:05: (style) bad indentation
+lab3.adb:107:09: (style) bad indentation
+lab3.adb:107:09: warning: "S" is not modified, could be declared constant [-gnatwk]
+lab3.adb:108:05: (style) bad indentation
+lab3.adb:109:09: (style) bad indentation
+lab3.adb:109:41: (style) "and then" required
+lab3.adb:111:09: (style) bad indentation
+lab3.adb:112:05: (style) bad indentation
+lab3.adb:114:05: (style) bad indentation
 lab3.adb:115:09: (style) bad indentation
+lab3.adb:115:09: warning: "S" is not modified, could be declared constant [-gnatwk]
+lab3.adb:116:05: (style) bad indentation
 lab3.adb:117:09: (style) bad indentation
-lab3.adb:118:05: (style) bad indentation
-lab3.adb:121:05: (style) bad indentation
-lab3.adb:122:05: (style) bad indentation
-lab3.adb:123:05: (style) bad indentation
-lab3.adb:124:05: (style) bad indentation
+lab3.adb:117:41: (style) "and then" required
+lab3.adb:120:09: (style) bad indentation
+lab3.adb:121:41: (style) "and then" required
+lab3.adb:122:17: (style) bad indentation
+lab3.adb:124:09: (style) bad indentation
 lab3.adb:125:05: (style) bad indentation
-lab3.adb:126:05: (style) bad indentation
-lab3.adb:127:05: (style) bad indentation
 lab3.adb:128:05: (style) bad indentation
 lab3.adb:129:05: (style) bad indentation
 lab3.adb:130:05: (style) bad indentation
@@ -104,8 +99,16 @@ lab3.adb:132:05: (style) bad indentation
 lab3.adb:133:05: (style) bad indentation
 lab3.adb:134:05: (style) bad indentation
 lab3.adb:135:05: (style) bad indentation
-lab3.adb:136:09: (style) bad indentation
-lab3.adb:139:17: (style) bad indentation
-lab3.adb:142:09: (style) bad indentation
-lab3.adb:151:09: (style) bad indentation
-lab3.adb:153:05: (style) bad indentation
+lab3.adb:136:05: (style) bad indentation
+lab3.adb:137:05: (style) bad indentation
+lab3.adb:138:05: (style) bad indentation
+lab3.adb:139:05: (style) bad indentation
+lab3.adb:140:05: (style) bad indentation
+lab3.adb:141:05: (style) bad indentation
+lab3.adb:142:05: (style) bad indentation
+lab3.adb:143:09: (style) bad indentation
+lab3.adb:146:17: (style) bad indentation
+lab3.adb:150:17: (style) bad indentation
+lab3.adb:153:09: (style) bad indentation
+lab3.adb:154:09: (style) bad indentation
+lab3.adb:155:05: (style) bad indentation

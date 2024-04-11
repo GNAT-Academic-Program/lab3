@@ -116,10 +116,10 @@ procedure Lab3 is
     begin
         if not Set (Row_Pins (Row_Idx)) and S = Rise then
             Str.Append (Output, Keys (Row_Idx, Col_Idx).C);
-            Keys (Row_Idx, Col_Idx).High;
+            Keys (Row_Idx, Col_Idx).S := High;
         else
             if Set (Row_Pins (Row_Idx)) and S = High then
-                Keys (Row_Idx, Col_Idx).Low;
+                Keys (Row_Idx, Col_Idx).S := Low;
             end if;
         end if;
     end;
@@ -145,7 +145,7 @@ begin
             for Row_Index in Row_Pins'Range loop
                 Update_Key (Row_Index, Col_Index);
             end loop;
-            delay 0.05;
+            delay 0.02;
             for Row_Index in Row_Pins'Range loop
                 Validate_Key (Row_Index, Col_Index);
             end loop;
