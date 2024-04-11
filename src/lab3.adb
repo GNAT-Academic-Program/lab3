@@ -36,29 +36,25 @@ procedure Lab3 is
     Col_Pins : array (1 .. 4) of GPIO_Point := (Col1, Col2, Col3, Col4);
     Row_Pins : array (1 .. 4) of GPIO_Point := (Row1, Row2, Row3, Row4);
 
-    type Key_State is (Pressed, Released);
+    --type Key_State is (Pressed, Released);
+    type Key_State is (Rise, High, Low);
     type Key is record
-       S1 : Key_State;
-       S2 : Key_State;
+       --E : Integer := 0;
+       S : Key_State;
        C : Character;
     end record;
 
     type Keys_Array is array (Row_Pins'Range, Col_Pins'Range) of Key;
 
-    Keys : Keys_Array := ((Key'(Released, '1'), Key'(Released, '2'), Key'(Released, '3'),Key'(Released, 'A')),
-                          (Key'(Released, '4'), Key'(Released, '5'), Key'(Released, '6'),Key'(Released, 'B')),
-                          (Key'(Released, '7'), Key'(Released, '8'), Key'(Released, '9'),Key'(Released, 'C')),
-                          (Key'(Released, '*'), Key'(Released, '0'), Key'(Released, '#'),Key'(Released, 'D')));
+    Keys : Keys_Array := ((Key'(Low, '1'), Key'(Low, '2'), Key'(Low, '3'),Key'(Low, 'A')),
+                          (Key'(Low, '4'), Key'(Low, '5'), Key'(Low, '6'),Key'(Low, 'B')),
+                          (Key'(Low, '7'), Key'(Low, '8'), Key'(Low, '9'),Key'(Low, 'C')),
+                          (Key'(Low, '*'), Key'(Low, '0'), Key'(Low, '#'),Key'(Low, 'D')));
     -- 1 2 3 a
     -- 4 5 6 b
     -- 7 8 9 c
     -- * 0 # d
 
-
-
-
-    Input_String : String (1 .. 10) := (others => ' '); -- max number
-    Input_Length : Natural          := 0; -- current length
 
     state : Boolean := False;
 
@@ -108,17 +104,23 @@ procedure Lab3 is
     Output : Str.Unbounded_String := +"";
 
     procedure Update_Key (Row_Idx : Integer; Col_Idx : Integer) is
+        S : Key_State := Keys (Row_Idx, Col_Idx).S;
     begin
-        if not Set (Row_Pins (Row_Idx)) then
-            Keys (Row_Idx, Col_Idx).S := Pressed;
+        if not Set (Row_Pins (Row_Idx)) and S = Low then
+            Keys (Row_Idx, Col_Idx).S := Rise;
         end if;
     end;
 
     procedure Validate_Key (Row_Idx : Integer; Col_Idx : Integer) is
-        KS : Key_State := Keys (Row_Idx, Col_Idx).S;
+        S : Key_State := Keys (Row_Idx, Col_Idx).S;
     begin
-        if not Set (Row_Pins (Row_Idx)) and KS = Pressed then
+        if not Set (Row_Pins (Row_Idx)) and S = Rise then
             Str.Append (Output, Keys (Row_Idx, Col_Idx).C);
+            Keys (Row_Idx, Col_Idx).High;
+        else
+            if Set (Row_Pins (Row_Idx)) and S = High then
+                Keys (Row_Idx, Col_Idx).Low;
+            end if;
         end if;
     end;
 
@@ -150,59 +152,5 @@ begin
             Low (Col_Pins (Col_Index));
         end loop;
         Print_To_LCD(+Output);
-        Keys := (others => (others => (S => Released)));
     end loop;
-    --  if not Set(Row1) then
-    --      if not Row1_state then
-    --          -- pressed
-    --          if Input_Length < Input_String'Length then
-    --              Input_Length := Input_Length + 1;
-    --              Input_String(Input_Length) := '1';
-    --              Print_To_LCD(Input_String(1 .. Input_Length));
-    --          end if;
-    --          Row1_state := True;
-    --      end if;
-    --  else
-    --      Row1_state := False;  -- reset
-    --  end if;
-    --  if not Set(Row2) then
-    --      if not Row2_state then
-    --          -- pressed
-    --          if Input_Length < Input_String'Length then
-    --              Input_Length := Input_Length + 1;
-    --              Input_String(Input_Length) := '4';
-    --              Print_To_LCD(Input_String(1 .. Input_Length));
-    --          end if;
-    --          Row2_state := True;
-    --      end if;
-    --  else
-    --      Row2_state := False;  -- reset
-    --  end if;
-    --  if not Set(Row3) then
-    --      if not Row3_state then
-    --          -- pressed
-    --          if Input_Length < Input_String'Length then
-    --              Input_Length := Input_Length + 1;
-    --              Input_String(Input_Length) := '7';
-    --              Print_To_LCD(Input_String(1 .. Input_Length));
-    --          end if;
-    --          Row3_state := True;
-    --      end if;
-    --  else
-    --      Row3_state := False;  -- reset
-    --  end if;
-    --  if not Set(Row4) then
-    --      if not Row4_state then
-    --          -- pressed
-    --          if Input_Length < Input_String'Length then
-    --              Input_Length := Input_Length + 1;
-    --              Input_String(Input_Length) := '*';
-    --              Print_To_LCD(Input_String(1 .. Input_Length));
-    --          end if;
-    --          Row4_state := True;  --
-    --      end if;
-    --  else
-    --      Row4_state := False;  -- reset
-    --  end if;
-
 end Lab3;
