@@ -7,7 +7,12 @@ with BMP_Fonts;
 with Bitmapped_Drawing;
 with Bitmap_Color_Conversion; use Bitmap_Color_Conversion;
 
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
 procedure Lab3 is
+
+    package Str renames Ada.Strings.Unbounded;
+
     Col1 : GPIO_Point := PC9;
     Col2 : GPIO_Point := PE4;
     Col3 : GPIO_Point := PE5;
@@ -30,6 +35,26 @@ procedure Lab3 is
 
     Col_Pins : array (1 .. 4) of GPIO_Point := (Col1, Col2, Col3, Col4);
     Row_Pins : array (1 .. 4) of GPIO_Point := (Row1, Row2, Row3, Row4);
+
+    type Key_State is (Pressed, Released);
+    type Key is record
+       S : Key_State;
+       C : Char;
+    end record;
+
+    type Keys_Array is array (Col_Pins'Range, Row_Pins'Range) of Key;
+
+    Keys : Keys_Array := ((Released, '1'), (Released, '2'), (Released, '3'),(Released, 'a'),
+                          (Released, '4'), (Released, '5'), (Released, '6'),(Released, 'b'),
+                          (Released, '7'), (Released, '8'), (Released, '9'),(Released, 'c'),
+                          (Released, '*'), (Released, '0'), (Released, '#'),(Released, 'd'));
+    -- 1 2 3 
+    -- 4 5 6 
+    -- 7 8 9 c
+    -- * 0 # d
+
+
+
 
     Input_String : String (1 .. 10) := (others => ' '); -- max number
     Input_Length : Natural          := 0; -- current length
@@ -67,6 +92,17 @@ procedure Lab3 is
 
         Display.Update_Layer (1, Copy_Back => True);
     end Print_To_LCD;
+
+    procedure Update_Key (Col_Idx : Integer; Row_Idx : Integer) is
+    begin
+        if not Set (Row_Pins (Row_Index)) then
+            Keys (Col_Idx, Row_Idx).S := Pressed;
+        else
+            Keys (Col_Idx, Row_Idx).S := Released;
+        end if;
+    end;
+
+    Output : Unbounded_String := "";
 begin
     Configure_Analog_Input (Row1);
     Configure_Analog_Input (Row2);
@@ -86,189 +122,19 @@ begin
         for Col_Index in Col_Pins'Range loop
             High (Col_Pins (Col_Index));
             for Row_Index in Row_Pins'Range loop
-                if not Set (Row_Pins (Row_Index)) then
-                    if not Col1_state then
-                        if Col_Index = 1 and Row_Index = 1 then
-                            if not Row1_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '1';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row1_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 1 and Row_Index = 2 then
-                            if not Row2_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '4';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row2_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 1 and Row_Index = 3 then
-                            if not Row3_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '7';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row3_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 1 and Row_Index = 4 then
-                            if not Row4_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '*';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row4_state := True;
-                            end if;
-                        end if;
-                        Col1_state := True;
-                    end if;
-
-                    --Col2
-                    if not Col2_state then
-                        if Col_Index = 2 and Row_Index = 1 then
-                            if not Row1_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '2';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row1_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 2 and Row_Index = 2 then
-                            if not Row2_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '5';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row2_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 2 and Row_Index = 3 then
-                            if not Row3_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '8';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row3_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 2 and Row_Index = 4 then
-                            if not Row4_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '0';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row4_state := True;
-                            end if;
-                        end if;
-                        Col2_state := True;
-                    end if;
-
-                    --Col3
-                    if not Col3_state then
-                        if Col_Index = 3 and Row_Index = 1 then
-                            if not Row1_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '3';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row1_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 3 and Row_Index = 2 then
-                            if not Row2_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '6';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row2_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 3 and Row_Index = 3 then
-                            if not Row3_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '9';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row3_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 3 and Row_Index = 4 then
-                            if not Row4_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := '#';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row4_state := True;
-                            end if;
-                        end if;
-                        Col3_state := True;
-                    end if;
-
-                    --Col4
-                    if not Col4_state then
-                        if Col_Index = 4 and Row_Index = 1 then
-                            if not Row1_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := 'A';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row1_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 4 and Row_Index = 2 then
-                            if not Row2_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := 'B';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row2_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 4 and Row_Index = 3 then
-                            if not Row3_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := 'C';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row3_state := True;
-                            end if;
-                        end if;
-                        if Col_Index = 4 and Row_Index = 4 then
-                            if not Row4_state then
-                                Input_Length := Input_Length + 1;
-                                Input_String (Input_Length) := 'D';
-                                Print_To_LCD
-                                   (Input_String (1 .. Input_Length));
-                                Row4_state := True;
-                            end if;
-                        end if;
-                        Col4_state := True;
-                    end if;
-                    -- Print updated string to LCD
-                    -- Print_To_LCD (Input_String (1 .. Input_Length));
-                end if;
-                Row1_state := False;
-                Row2_state := False;
-                Row3_state := False;
-                Row4_state := False;
-
+                Update_Key (Col_Index, Row_Index);
+                Update_Key (Col_Index, Row_Index);
+                Update_Key (Col_Index, Row_Index);
+                Update_Key (Col_Index, Row_Index); 
             end loop;
+            Low (Col_Pins (Col_Index));
         end loop;
 
-        Col1_state := False;
-        Col2_state := False;
-        Col3_state := False;
-        Col4_state := False;
-        -- reset all Colomn
-        Low (Col1);
-        Low (Col2);
-        Low (Col3);
-        Low (Col4);
+        for I in Keys'range (1) loop
+            for J in Keys'range (2) loop
+                Str.Append (Output, Keys (I,J).C);
+            end loop;
+        end loop;
     end loop;
     --  if not Set(Row1) then
     --      if not Row1_state then
