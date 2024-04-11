@@ -39,17 +39,17 @@ procedure Lab3 is
     type Key_State is (Pressed, Released);
     type Key is record
        S : Key_State;
-       C : Char;
+       C : Character;
     end record;
 
-    type Keys_Array is array (Col_Pins'Range, Row_Pins'Range) of Key;
+    type Keys_Array is array (Row_Pins'Range, Col_Pins'Range) of Key;
 
-    Keys : Keys_Array := ((Released, '1'), (Released, '2'), (Released, '3'),(Released, 'a'),
-                          (Released, '4'), (Released, '5'), (Released, '6'),(Released, 'b'),
-                          (Released, '7'), (Released, '8'), (Released, '9'),(Released, 'c'),
-                          (Released, '*'), (Released, '0'), (Released, '#'),(Released, 'd'));
-    -- 1 2 3 
-    -- 4 5 6 
+    Keys : Keys_Array := ((Key'(Released, '1'), Key'(Released, '2'), Key'(Released, '3'),Key'(Released, 'A')),
+                          (Key'(Released, '4'), Key'(Released, '5'), Key'(Released, '6'),Key'(Released, 'B')),
+                          (Key'(Released, '7'), Key'(Released, '8'), Key'(Released, '9'),Key'(Released, 'C')),
+                          (Key'(Released, '*'), Key'(Released, '0'), Key'(Released, '#'),Key'(Released, 'D')));
+    -- 1 2 3 a
+    -- 4 5 6 b
     -- 7 8 9 c
     -- * 0 # d
 
@@ -60,6 +60,7 @@ procedure Lab3 is
     Input_Length : Natural          := 0; -- current length
 
     state : Boolean := False;
+
 
     procedure High (This : in out GPIO_Point) renames STM32.GPIO.Clear;
     procedure Low (This : in out GPIO_Point) renames STM32.GPIO.Set;
@@ -93,16 +94,29 @@ procedure Lab3 is
         Display.Update_Layer (1, Copy_Back => True);
     end Print_To_LCD;
 
-    procedure Update_Key (Col_Idx : Integer; Row_Idx : Integer) is
+
+    function "+" (S:Str.Unbounded_String) return String is
     begin
-        if not Set (Row_Pins (Row_Index)) then
-            Keys (Col_Idx, Row_Idx).S := Pressed;
+        return Str.To_String(S);
+    end;
+    function "+" (S: String) return Unbounded_String is
+    begin
+        return Str.To_Unbounded_String(S);
+    end;
+
+    Output : Str.Unbounded_String := +"";
+
+    procedure Update_Key (Row_Idx : Integer; Col_Idx : Integer) is
+    KS : Key_State := Keys (Row_Idx, Col_Idx).S;
+    begin
+        if not Set (Row_Pins (Row_Idx)) and KS = Released then
+            Keys (Row_Idx, Col_Idx).S := Pressed;
+            Str.Append (Output, Keys (Row_Idx, Col_Idx).C);
         else
-            Keys (Col_Idx, Row_Idx).S := Released;
+            Keys (Row_Idx, Col_Idx).S := Released;
         end if;
     end;
 
-    Output : Unbounded_String := "";
 begin
     Configure_Analog_Input (Row1);
     Configure_Analog_Input (Row2);
@@ -122,19 +136,13 @@ begin
         for Col_Index in Col_Pins'Range loop
             High (Col_Pins (Col_Index));
             for Row_Index in Row_Pins'Range loop
-                Update_Key (Col_Index, Row_Index);
-                Update_Key (Col_Index, Row_Index);
-                Update_Key (Col_Index, Row_Index);
-                Update_Key (Col_Index, Row_Index); 
+                Update_Key (Row_Index, Col_Index);
             end loop;
             Low (Col_Pins (Col_Index));
         end loop;
 
-        for I in Keys'range (1) loop
-            for J in Keys'range (2) loop
-                Str.Append (Output, Keys (I,J).C);
-            end loop;
-        end loop;
+        Print_To_LCD(+Output);
+        delay 0.2;
     end loop;
     --  if not Set(Row1) then
     --      if not Row1_state then
