@@ -38,7 +38,8 @@ procedure Lab3 is
 
     type Key_State is (Pressed, Released);
     type Key is record
-       S : Key_State;
+       S1 : Key_State;
+       S2 : Key_State;
        C : Character;
     end record;
 
@@ -107,13 +108,17 @@ procedure Lab3 is
     Output : Str.Unbounded_String := +"";
 
     procedure Update_Key (Row_Idx : Integer; Col_Idx : Integer) is
-    KS : Key_State := Keys (Row_Idx, Col_Idx).S;
     begin
-        if not Set (Row_Pins (Row_Idx)) and KS = Released then
+        if not Set (Row_Pins (Row_Idx)) then
             Keys (Row_Idx, Col_Idx).S := Pressed;
+        end if;
+    end;
+
+    procedure Validate_Key (Row_Idx : Integer; Col_Idx : Integer) is
+        KS : Key_State := Keys (Row_Idx, Col_Idx).S;
+    begin
+        if not Set (Row_Pins (Row_Idx)) and KS = Pressed then
             Str.Append (Output, Keys (Row_Idx, Col_Idx).C);
-        else
-            Keys (Row_Idx, Col_Idx).S := Released;
         end if;
     end;
 
@@ -138,11 +143,14 @@ begin
             for Row_Index in Row_Pins'Range loop
                 Update_Key (Row_Index, Col_Index);
             end loop;
+            delay 0.05;
+            for Row_Index in Row_Pins'Range loop
+                Validate_Key (Row_Index, Col_Index);
+            end loop;
             Low (Col_Pins (Col_Index));
         end loop;
-
         Print_To_LCD(+Output);
-        delay 0.2;
+        Keys := (others => (others => (S => Released)));
     end loop;
     --  if not Set(Row1) then
     --      if not Row1_state then
