@@ -13,6 +13,12 @@ procedure Lab3 is
 
     package Str renames Ada.Strings.Unbounded;
 
+    -- LED GPIO Points
+    LED_Red   : User_LED := PG13;
+    LED_Green : User_LED := PG14;
+
+    LEDs : GPIO_Points := LED_Red & LED_Green;
+
     Col1 : GPIO_Point := PC9;
     Col2 : GPIO_Point := PE4;
     Col3 : GPIO_Point := PE5;
@@ -39,25 +45,25 @@ procedure Lab3 is
     --type Key_State is (Pressed, Released);
     type Key_State is (Rise, High, Low);
     type Key is record
-       --E : Integer := 0;
-       S : Key_State;
-       C : Character;
+        --E : Integer := 0;
+        S : Key_State;
+        C : Character;
     end record;
 
     type Keys_Array is array (Row_Pins'Range, Col_Pins'Range) of Key;
 
-    Keys : Keys_Array := ((Key'(Low, '1'), Key'(Low, '2'), Key'(Low, '3'),Key'(Low, 'A')),
-                          (Key'(Low, '4'), Key'(Low, '5'), Key'(Low, '6'),Key'(Low, 'B')),
-                          (Key'(Low, '7'), Key'(Low, '8'), Key'(Low, '9'),Key'(Low, 'C')),
-                          (Key'(Low, '*'), Key'(Low, '0'), Key'(Low, '#'),Key'(Low, 'D')));
+    Keys : Keys_Array :=
+       ((Key'(Low, '1'), Key'(Low, '2'), Key'(Low, '3'), Key'(Low, 'A')),
+        (Key'(Low, '4'), Key'(Low, '5'), Key'(Low, '6'), Key'(Low, 'B')),
+        (Key'(Low, '7'), Key'(Low, '8'), Key'(Low, '9'), Key'(Low, 'C')),
+        (Key'(Low, '*'), Key'(Low, '0'), Key'(Low, '#'), Key'(Low, 'D')));
     -- 1 2 3 a
     -- 4 5 6 b
     -- 7 8 9 c
     -- * 0 # d
 
-
-    state : Boolean := False;
-
+    state    : Boolean         := False;
+    Password : constant String := "789C";
 
     procedure High (This : in out GPIO_Point) renames STM32.GPIO.Clear;
     procedure Low (This : in out GPIO_Point) renames STM32.GPIO.Set;
@@ -77,6 +83,25 @@ procedure Lab3 is
              Resistors => Floating));
     end Configure_Analog_Output;
 
+    procedure Update_LEDs (Is_Armed : Boolean) is
+    begin
+        if Is_Armed then
+            Low (LED_Red);
+            High (LED_Green);
+        else
+            High (LED_Red);
+            Low (LED_Green);
+        end if;
+    end Update_LEDs;
+
+    procedure Configure_LEDs is
+    begin
+        Configure_Analog_Output (LED_Red);
+        Configure_Analog_Output (LED_Green);
+        Update_LEDs (state);
+
+    end Configure_LEDs;
+
     procedure Print_To_LCD (Str : String) is
         BG : constant Bitmap_Color := (Alpha => 255, others => 64);
         FG : constant Bitmap_Color := (Alpha => 255, others => 255);
@@ -91,15 +116,14 @@ procedure Lab3 is
         Display.Update_Layer (1, Copy_Back => True);
     end Print_To_LCD;
 
-
-    function "+" (S:Str.Unbounded_String) return String is
+    function "+" (S : Str.Unbounded_String) return String is
     begin
-        return Str.To_String(S);
-    end;
-    function "+" (S: String) return Unbounded_String is
+        return Str.To_String (S);
+    end "+";
+    function "+" (S : String) return Unbounded_String is
     begin
-        return Str.To_Unbounded_String(S);
-    end;
+        return Str.To_Unbounded_String (S);
+    end "+";
 
     Output : Str.Unbounded_String := +"";
 
@@ -109,7 +133,7 @@ procedure Lab3 is
         if not Set (Row_Pins (Row_Idx)) and S = Low then
             Keys (Row_Idx, Col_Idx).S := Rise;
         end if;
-    end;
+    end Update_Key;
 
     procedure Validate_Key (Row_Idx : Integer; Col_Idx : Integer) is
         S : Key_State := Keys (Row_Idx, Col_Idx).S;
@@ -122,7 +146,26 @@ procedure Lab3 is
                 Keys (Row_Idx, Col_Idx).S := Low;
             end if;
         end if;
-    end;
+    end Validate_Key;
+
+    procedure Check_Password is
+    begin
+        if +Output = Password then
+            state := True;
+            Update_LEDs (state);
+            Output := +""; -- Clear input after checking
+            Print_To_LCD ("NOT ARMED");
+        elsif Str.Length (Output) = 4 then
+            Output := +""; -- Reset if incorrect length 4 and wrong
+            Print_To_LCD ("ERROR");
+        end if;
+    end Check_Password;
+
+    function Generate_Asterisks (Length : Natural) return String is
+        Result : String (1 .. Length) := (others => '*');
+    begin
+        return Result;
+    end Generate_Asterisks;
 
 begin
     Configure_Analog_Input (Row1);
@@ -133,12 +176,15 @@ begin
     Configure_Analog_Output (Col2);
     Configure_Analog_Output (Col3);
     Configure_Analog_Output (Col4);
+    Configure_LEDs;
     Low (Col1);
     Low (Col2);
     Low (Col3);
     Low (Col4);
     Display.Initialize;
     Display.Initialize_Layer (1, ARGB_8888);
+    Print_To_LCD ("ARMED"); -- Initially show ARMED
+    --  Update_LEDs (True);
     loop
         for Col_Index in Col_Pins'Range loop
             High (Col_Pins (Col_Index));
@@ -151,6 +197,9 @@ begin
             end loop;
             Low (Col_Pins (Col_Index));
         end loop;
-        Print_To_LCD(+Output);
+        if Str.Length (Output) > 0 then
+            Print_To_LCD (Generate_Asterisks (Str.Length (Output)));
+        end if;
+        Check_Password;
     end loop;
 end Lab3;
